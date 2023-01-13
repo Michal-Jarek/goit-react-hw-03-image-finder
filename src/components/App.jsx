@@ -1,16 +1,13 @@
+import { Searchbar } from "./Searchbar/Searchbar";
+import { cokolwiek } from "utils/Api/Api";
+
 export const App = () => {
+
+  cokolwiek("big boobs");
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <Searchbar onSubmit />
     </div>
   );
 };
