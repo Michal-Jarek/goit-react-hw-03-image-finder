@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+
 
 const Searchbar = ({ onSubmit }) => (
   <header className="Searchbar">
