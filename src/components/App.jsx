@@ -1,13 +1,30 @@
-import { Searchbar } from "./Searchbar/Searchbar";
-import { cokolwiek } from "utils/Api/Api";
+import { Searchbar } from './Searchbar/Searchbar';
+import { ImageGallery } from './ImageGallery/ImageGallery';
 
-export const App = () => {
+import { Component } from 'react';
+import { inquiry } from 'utils/Api/Api';
 
-  cokolwiek("big boobs");
+export class App extends Component {
 
-  return (
-    <div>
-      <Searchbar onSubmit />
-    </div>
-  );
-};
+  state = {
+    photosArray: [],
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    
+  }
+  async componentDidMount() {
+    const response = await inquiry('cat black', 1);
+    this.setState({ photosArray: response });
+  }
+
+  render() {
+    return (
+      <div>
+        <Searchbar />
+        <ImageGallery imageArray={this.state.photosArray} />
+      </div>
+    );
+  }
+}
