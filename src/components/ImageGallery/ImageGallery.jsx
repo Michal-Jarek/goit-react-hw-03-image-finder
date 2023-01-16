@@ -4,11 +4,11 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 
 const ImageGallery = ({ imageArray }) => (
   <ul className="ImageGallery">
-    {imageArray.map(({ id, previewURL, tags }) => (
+    {imageArray.map(({ id, webformatURL, tags }) => (
       <ImageGalleryItem
         key={nanoid()}
         imageId={id}
-        src={previewURL}
+        src={webformatURL}
         alt={tags}
       />
     ))}

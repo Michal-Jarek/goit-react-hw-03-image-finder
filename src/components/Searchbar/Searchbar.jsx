@@ -8,6 +8,7 @@ const Searchbar = ({ onSubmit }) => (
       </button>
 
       <input
+        name="search"
         className="SearchForm-input"
         type="text"
         autoComplete="off"
