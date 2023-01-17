@@ -5,15 +5,17 @@ const basePath = `?${apiKey}&image_type=photo&orientation=horizontal&per_page=12
 
 const instance = axios.create({
   baseURL: 'https://pixabay.com/api/',
-  timeout: 1000,
+  timeout: 3000,
 });
-
 
 const inquiry = async (description, page) => {
   let searchedItem = description.replace(' ', '+');
-  const response = await instance.get(`${basePath}&page=${page}&q=${searchedItem}`);
+  const response = await instance.get(
+    `${basePath}&page=${page}&q=${searchedItem}`
+  );
   console.log(response.data.hits);
-  return response.data.hits;
+  console.log(response.data);
+  return response.data;
 };
 
 export { inquiry };

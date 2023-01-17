@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 
-const ImageGallery = ({ imageArray }) => (
+const ImageGallery = ({ imageArray, children }) => (
   <ul className="ImageGallery">
     {imageArray.map(({ id, webformatURL, tags }) => (
       <ImageGalleryItem
@@ -12,6 +12,7 @@ const ImageGallery = ({ imageArray }) => (
         alt={tags}
       />
     ))}
+    {children}
   </ul>
 );
 export { ImageGallery };
