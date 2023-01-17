@@ -13,8 +13,6 @@ const inquiry = async (description, page) => {
   const response = await instance.get(
     `${basePath}&page=${page}&q=${searchedItem}`
   );
-  console.log(response.data.hits);
-  console.log(response.data);
   return response.data;
 };
 

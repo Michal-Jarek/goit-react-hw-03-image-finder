@@ -1,7 +1,12 @@
-
-const ImageGalleryItem = ({ imageId, src, alt }) => (
-  <li  className="ImageGalleryItem">
-    <img id={imageId} className="ImageGalleryItem-image" src={src} alt={alt} />
+const ImageGalleryItem = ({ imageId, src, alt, handleClick }) => (
+  <li className="ImageGalleryItem">
+    <img
+      onClick={() => handleClick(imageId)}
+      id={imageId}
+      className="ImageGalleryItem-image"
+      src={src}
+      alt={alt}
+    />
   </li>
 );
 
