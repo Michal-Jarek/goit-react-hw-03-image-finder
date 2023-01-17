@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 
@@ -18,3 +19,8 @@ const ImageGallery = ({ imageArray, handleClick }) => {
   );
 };
 export { ImageGallery };
+
+ImageGallery.propTypes = {
+  imageArray: PropTypes.array,
+  handleClick: PropTypes.func,
+};

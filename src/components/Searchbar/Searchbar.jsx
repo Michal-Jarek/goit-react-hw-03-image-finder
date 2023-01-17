@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 const Searchbar = ({ onSubmit }) => (
   <header className="Searchbar">
@@ -19,5 +19,8 @@ const Searchbar = ({ onSubmit }) => (
   </header>
 );
 
-
 export { Searchbar };
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func,
+}
