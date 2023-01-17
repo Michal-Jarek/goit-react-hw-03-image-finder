@@ -1,5 +1,4 @@
 const Modal = ({ object, handleClose }) => {
-    console.log(object);
 
   return (
     <div className="Overlay" onClick={handleClose}>

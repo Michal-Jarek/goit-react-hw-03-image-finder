@@ -18,6 +18,8 @@ export class App extends Component {
     modalPictureId: '',
   };
 
+  // ******************* Additional METHODS **********************************
+
   handleSubmit = async e => {
     e.preventDefault();
     let totalPage = 0;
@@ -56,15 +58,28 @@ export class App extends Component {
       modalPictureId: id,
     }));
   };
-  handleCloseModal = () => {
-    console.log('cokolwiek');
-    if (this.state.modalVisible)
+  handleKeyCloseModal = e => {
+    if (e.code === 'Escape' && this.state.modalVisible)
+      this.setState(prevState => ({
+        modalVisible: !prevState.modalVisible,
+      }));
+  };
+  handleCloseModal = e => {
+    e.stopPropagation();
+    if (this.state.modalVisible && e.target.className === 'Overlay')
       this.setState(prevState => ({
         modalVisible: !prevState.modalVisible,
       }));
   };
 
   findObjectOfId = id => this.state.photosArray.find(photo => photo.id === id);
+
+  // **************** END Additional METHODS *******************************
+
+  // ******************* COMPONENT METHODS *********************************
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyCloseModal);
+  }
 
   async componentDidUpdate(prevProps, prevState) {
     if (prevState.page !== this.state.page) {
@@ -87,6 +102,8 @@ export class App extends Component {
     }
   }
 
+  // ******************* END COMPONENT METHODS ***********************************
+
   render() {
     return (
       <div className="App">
@@ -94,6 +111,7 @@ export class App extends Component {
         <ImageGallery
           imageArray={this.state.photosArray}
           handleClick={this.handleModalClick}
+          KeyDown={this.handleKeyCloseModal}
         />
         <Loader isLoad={this.state.isLoad} />
         {this.state.totalPage > this.state.page &&
