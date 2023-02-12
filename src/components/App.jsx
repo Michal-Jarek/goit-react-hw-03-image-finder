@@ -4,7 +4,7 @@ import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
 
 import { Component } from 'react';
-import { inquiry } from 'utils/api/api';
+import { inquiry } from './utils/api/api';
 import { Modal } from './Modal/Modal';
 
 export class App extends Component {
